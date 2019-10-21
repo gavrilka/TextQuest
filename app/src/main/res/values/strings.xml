@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Full Moon</string>
+    <string name="start">Start Game</string>
+    <string name="back">Back</string>
+    <string name="about_author">About Author</string>
+    <string name="about_game">About Game</string>
+    <string name="button_label_enabled">Material Button</string>
+    <string name="string1">String 1</string>
+    <string name="string2">String 2</string>
+    <string name="string3">String 3</string>
+    <string name="Next_level">Next level</string>
+    <string name="Next">Next</string>
+    <string name="Yes">Yes</string>
+    <string name="No">No</string>
+</resources>
