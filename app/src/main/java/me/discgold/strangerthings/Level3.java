@@ -24,45 +24,67 @@ public class Level3 extends AppCompatActivity {
     public TextView textView1;
     public TextView textView2;
     public ImageView imageView1;
-    public TextView textView3;
-    public TextView textView4;
-    public Button bbuttonNextLevel;
+    public Button button_1;
+    public Button button_2;
+    public Button button_3;
 
     public int line = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.level_1);
+        setContentView(R.layout.level_3);
         final TextView textView1 = (TextView)findViewById(R.id.textView1);
-        final TextView textView2 = (TextView)findViewById(R.id.textView2);
         final ImageView imageView1 = (ImageView) findViewById(R.id.level_one_image);
-        final TextView textView3 = (TextView)findViewById(R.id.textView3);
-        final TextView textView4 = (TextView)findViewById(R.id.textView4);
-        final Button buttonNextLevel = (Button)findViewById(R.id.button_next_level);
+        final TextView textView2 = (TextView)findViewById(R.id.textView2);
+        final Button button_1 = (Button)findViewById(R.id.button_1);
+        final Button button_2 = (Button)findViewById(R.id.button_2);
+        final Button button_3 = (Button)findViewById(R.id.button_3);
 
-        textView1.setText(oneTable.onescenario_ru[10]);
-        textView2.setText(oneTable.onescenario_ru[1]);
-        textView3.setText(oneTable.onescenario_ru[2]);
-        textView4.setText(oneTable.onescenario_ru[3]);
+        textView1.setText(oneTable.onescenario_ru[13]);
+        textView2.setText(oneTable.onescenario_ru[14]);
+        button_1.setText(oneTable.onescenario_ru[15]);
+        button_2.setText(oneTable.onescenario_ru[16]);
+        button_3.setText(oneTable.onescenario_ru[17]);
 
         //внизу будет код, который прячет текст
         textView1.setVisibility(View.INVISIBLE);
         textView2.setVisibility(View.INVISIBLE);
         imageView1.setVisibility(View.INVISIBLE);
-        textView3.setVisibility(View.INVISIBLE);
-        textView4.setVisibility(View.INVISIBLE);
-        buttonNextLevel.setVisibility(View.INVISIBLE);
+        button_1.setVisibility(View.INVISIBLE);
+        button_2.setVisibility(View.INVISIBLE);
+        button_3.setVisibility(View.INVISIBLE);
         //конец скрытия текста
 
         //команда, которая запускает AsyncTask
         delay.execute();
         //конец команды, которая запускает AsyncTask
-
-        buttonNextLevel.setOnClickListener(new View.OnClickListener() {
+        button_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try{
                     Intent intent = new Intent (Level3.this, Level3.class);
+                    startActivity(intent);finish();
+                } catch (Exception e) {
+
+                }
+            }
+        });
+        button_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    Intent intent = new Intent (Level3.this, Level6.class);
+                    startActivity(intent);finish();
+                } catch (Exception e) {
+
+                }
+            }
+        });
+        button_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    Intent intent = new Intent (Level3.this, Level4.class);
                     startActivity(intent);finish();
                 } catch (Exception e) {
 
@@ -81,7 +103,7 @@ public class Level3 extends AppCompatActivity {
             while (line<=5){
                 publishProgress(line++);
                 try{
-                    Thread.sleep(5000);
+                    Thread.sleep(4000);
                     if (isCancelled()) return null;
                 }catch(Exception e){}
             }
@@ -91,21 +113,21 @@ public class Level3 extends AppCompatActivity {
         @Override
         protected void onProgressUpdate (Integer... values){
         final TextView textView1 = (TextView)findViewById(R.id.textView1);
-        final TextView textView2 = (TextView)findViewById(R.id.textView2);
         final ImageView imageView1 = (ImageView) findViewById(R.id.level_one_image);
-        final TextView textView3 = (TextView)findViewById(R.id.textView3);
-        final TextView textView4 = (TextView)findViewById(R.id.textView4);
-        final Button buttonNextLevel = (Button)findViewById(R.id.button_next_level);
+        final TextView textView2 = (TextView)findViewById(R.id.textView2);
+        final Button button_1 = (Button)findViewById(R.id.button_1);
+        final Button button_2 = (Button)findViewById(R.id.button_2);
+        final Button button_3 = (Button)findViewById(R.id.button_3);
 
         final Animation a = AnimationUtils.loadAnimation(Level3.this, R.anim.alpha);
 
             switch(line){
                 case 1: textView1.setVisibility(View.VISIBLE); textView1.startAnimation(a); break;
-                case 2: textView2.setVisibility(View.VISIBLE); textView2.startAnimation(a); break;
-                case 3: imageView1.setVisibility(View.VISIBLE); imageView1.startAnimation(a); break;
-                case 4: textView3.setVisibility(View.VISIBLE); textView3.startAnimation(a); break;
-                case 5: textView4.setVisibility(View.VISIBLE); textView4.startAnimation(a); break;
-                case 6: buttonNextLevel.setVisibility(View.VISIBLE); buttonNextLevel.startAnimation(a); break;
+                case 2: imageView1.setVisibility(View.VISIBLE); imageView1.startAnimation(a); break;
+                case 3: textView2.setVisibility(View.VISIBLE); textView2.startAnimation(a); break;
+                case 4: button_1.setVisibility(View.VISIBLE); button_1.startAnimation(a);break;
+                case 5: button_2.setVisibility(View.VISIBLE); button_2.startAnimation(a);break;
+                case 6: button_3.setVisibility(View.VISIBLE); button_3.startAnimation(a);break;
                 default: break;
             }
         }
@@ -117,7 +139,7 @@ public class Level3 extends AppCompatActivity {
     @Override
     public void onBackPressed(){
         try{
-            Intent intent = new Intent (Level3.this, MainActivity.class);
+            Intent intent = new Intent (Level3.this, Level2.class);
             startActivity(intent);finish();
         } catch (Exception e) {
 

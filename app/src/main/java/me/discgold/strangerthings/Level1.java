@@ -27,7 +27,8 @@ public class Level1 extends AppCompatActivity {
     public ImageView imageView1;
     public TextView textView3;
     public TextView textView4;
-    public Button bbuttonNextLevel;
+    public TextView textView5;
+    public Button buttonNextLevel;
 
     public int line = 0;
     @Override
@@ -39,12 +40,15 @@ public class Level1 extends AppCompatActivity {
         final ImageView imageView1 = (ImageView) findViewById(R.id.level_one_image);
         final TextView textView3 = (TextView)findViewById(R.id.textView3);
         final TextView textView4 = (TextView)findViewById(R.id.textView4);
+        final TextView textView5 = (TextView)findViewById(R.id.textView5);
         final Button buttonNextLevel = (Button)findViewById(R.id.button_next_level);
 
-        textView1.setText(oneTable.onescenario_ru[0]);
-        textView2.setText(oneTable.onescenario_ru[1]);
-        textView3.setText(oneTable.onescenario_ru[2]);
-        textView4.setText(oneTable.onescenario_ru[3]);
+        textView1.setText(oneTable.onescenario_ru[1]);
+        textView2.setText(oneTable.onescenario_ru[2]);
+        textView3.setText(oneTable.onescenario_ru[3]);
+        textView4.setText(oneTable.onescenario_ru[4]);
+        textView5.setText(oneTable.onescenario_ru[5]);
+        buttonNextLevel.setText(oneTable.onescenario_ru[6]);
 
         //внизу будет код, который прячет текст
         textView1.setVisibility(View.INVISIBLE);
@@ -52,6 +56,7 @@ public class Level1 extends AppCompatActivity {
         imageView1.setVisibility(View.INVISIBLE);
         textView3.setVisibility(View.INVISIBLE);
         textView4.setVisibility(View.INVISIBLE);
+        textView5.setVisibility(View.INVISIBLE);
         buttonNextLevel.setVisibility(View.INVISIBLE);
         //конец скрытия текста
 
@@ -79,10 +84,10 @@ public class Level1 extends AppCompatActivity {
 
         @Override
             protected Void doInBackground(Void... params){
-            while (line<=5){
+            while (line<=6){
                 publishProgress(line++);
                 try{
-                    Thread.sleep(5000);
+                    Thread.sleep(4000);
                     if (isCancelled()) return null;
                 }catch(Exception e){}
             }
@@ -96,6 +101,7 @@ public class Level1 extends AppCompatActivity {
         final ImageView imageView1 = (ImageView) findViewById(R.id.level_one_image);
         final TextView textView3 = (TextView)findViewById(R.id.textView3);
         final TextView textView4 = (TextView)findViewById(R.id.textView4);
+        final TextView textView5 = (TextView)findViewById(R.id.textView5);
         final Button buttonNextLevel = (Button)findViewById(R.id.button_next_level);
 
         final Animation a = AnimationUtils.loadAnimation(Level1.this, R.anim.alpha);
@@ -106,7 +112,8 @@ public class Level1 extends AppCompatActivity {
                 case 3: imageView1.setVisibility(View.VISIBLE); imageView1.startAnimation(a); break;
                 case 4: textView3.setVisibility(View.VISIBLE); textView3.startAnimation(a); break;
                 case 5: textView4.setVisibility(View.VISIBLE); textView4.startAnimation(a); break;
-                case 6: buttonNextLevel.setVisibility(View.VISIBLE); buttonNextLevel.startAnimation(a); break;
+                case 6: textView5.setVisibility(View.VISIBLE); textView5.startAnimation(a); break;
+                case 7: buttonNextLevel.setVisibility(View.VISIBLE); buttonNextLevel.startAnimation(a); break;
                 default: break;
             }
         }

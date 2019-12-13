@@ -9,6 +9,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
+import com.google.android.gms.ads.MobileAds;
+
+import java.util.logging.Level;
 
 public class MainActivity extends AppCompatActivity {
     private long backPressedTime;
@@ -23,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try{
-                    Intent intent = new Intent (MainActivity.this, Level1.class);
+                    Intent intent = new Intent (MainActivity.this, Level3.class);
                     startActivity(intent);finish();
                 } catch (Exception e) {
 
